@@ -5,6 +5,9 @@
   "repository": "git@github.com:Kenzie-Academy-Brasil-Developers/q4-sprint2-kenzie-courses.git",
   "author": "Alex <alexander@kenzie.com.br>",
   "license": "MIT",
+  "engines": {
+    "node": "16.13.x"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
@@ -34,7 +37,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --files --rs src/server.ts",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:create": "typeorm-ts-node-commonjs migration:create",
     "migration:generate": "typeorm-ts-node-commonjs migration:generate -d ./src/data-source.ts",
