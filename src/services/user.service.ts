@@ -20,12 +20,10 @@ interface ILogin {
 
 class UserService {
   login = async ({ validated }: Request): Promise<ILogin> => {
-    console.log(validated, "login");
-
     const user: User = await userRepository.retrieve({
       email: (validated as User).email,
     });
-    console.log(user, "user");
+
     if (!user) {
       return {
         status: 401,

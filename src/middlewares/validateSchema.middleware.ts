@@ -12,7 +12,6 @@ const validateSchema =
       });
 
       req.validated = validated;
-      console.log(req.validated);
 
       return next();
     } catch (error) {

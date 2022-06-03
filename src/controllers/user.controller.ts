@@ -4,7 +4,6 @@ import userService from "../services/user.service";
 class UserController {
   loginUser = async (req: Request, res: Response) => {
     const { status, message } = await userService.login(req);
-    console.log(status, message);
     return res.status(status).json(message);
   };
 

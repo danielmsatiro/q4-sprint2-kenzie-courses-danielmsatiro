@@ -55,9 +55,9 @@ userRouter.patch(
 userRouter.patch(
   "/users/subscribe/:id",
   validateSchema(subscribeCourseSchema),
-  getUserByIdOr404,
   validateToken,
-  verifyPermission,
+  getUserByIdOr404,
+  verifyAdmin,
   userController.userSubscribeCourse
 );
 
