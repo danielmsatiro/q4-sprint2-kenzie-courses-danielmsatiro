@@ -6,8 +6,8 @@ const courseSchema = yup.object().shape({
 });
 
 const courseUpdateSchema = yup.object().shape({
-    courseName: yup.string(),
-    duration: yup.string(),
+  courseName: yup.string(),
+  duration: yup.string(),
 });
 
 const serializedCourseSchema = yup.object().shape({
@@ -16,4 +16,4 @@ const serializedCourseSchema = yup.object().shape({
   duration: yup.string().required(),
 });
 
-export { courseSchema, serializedCourseSchema, courseUpdateSchema  }
+export { courseSchema, serializedCourseSchema, courseUpdateSchema };

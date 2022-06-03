@@ -1,5 +1,5 @@
 import app from "./app";
-import { AppDataSource } from "./data-source";
+import AppDataSource from "./data-source";
 
 AppDataSource.initialize()
   .then(() => {
@@ -7,7 +7,7 @@ AppDataSource.initialize()
     const port = process.env.PORT ?? 3000;
 
     app.listen(port, () => {
-      console.log(`App running on http://localhost:${port}/`);
+      console.log(`App running on http://localhost:${port}`);
     });
   })
   .catch((err) => console.error(err));

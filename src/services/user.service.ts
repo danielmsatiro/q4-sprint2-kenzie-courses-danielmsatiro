@@ -1,5 +1,5 @@
 import { User } from "../entities/User.entity";
-import { userRepository } from "../repositories";
+import { courseRepository, userRepository } from "../repositories";
 import { Request } from "express";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
@@ -9,6 +9,7 @@ import {
   serializedCreateUserSchema,
 } from "../schemas";
 import { AssertsShape } from "yup/lib/object";
+import { ISubscribe } from "../@types/express";
 
 dotenv.config();
 
@@ -73,6 +74,31 @@ class UserService {
   update = async ({ validated, user }: Request): Promise<AssertsShape<any>> => {
     await userRepository.update(user.id, { ...(validated as User) });
     const updatedUser = await userRepository.retrieve({ id: user.id });
+    return await serializedCreateUserSchema.validate(updatedUser, {
+      stripUnknown: true,
+    });
+  };
+
+  userSubscribeCourse = async ({
+    validated,
+    params,
+  }): Promise<AssertsShape<any>> => {
+    const course = await courseRepository.retrieve({
+      id: (validated as ISubscribe).courseId,
+    });
+
+    if (!course) {
+      throw new ErrorHandler(404, "Course not found");
+    }
+
+    const studant = await userRepository.retrieve({ id: params.id });
+
+    studant.courses.push(course);
+
+    await userRepository.save(studant);
+
+    const updatedUser = await userRepository.retrieve({ id: studant.id });
+
     return await serializedCreateUserSchema.validate(updatedUser, {
       stripUnknown: true,
     });

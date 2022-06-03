@@ -33,13 +33,13 @@ const serializedCreateUserSchema = yup.object().shape({
   isAdm: yup.boolean().required(),
   createdAt: yup.date().required(),
   updatedAt: yup.date().required(),
-  courses: yup.array().of(yup
-    .object()
-    .shape({
-    id: yup.string().uuid().optional(),
-    courseName: yup.string().optional(),
-    duration: yup.string().optional(),
-  })),
+  courses: yup.array().of(
+    yup.object().shape({
+      id: yup.string().uuid().optional(),
+      courseName: yup.string().optional(),
+      duration: yup.string().optional(),
+    })
+  ),
 });
 
-export { createUserSchema, serializedCreateUserSchema, userUpdateSchema  }
+export { createUserSchema, serializedCreateUserSchema, userUpdateSchema };

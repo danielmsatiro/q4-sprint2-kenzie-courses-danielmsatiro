@@ -27,6 +27,11 @@ class UserController {
     const user = await userService.update(req);
     return res.status(200).json(user);
   };
+
+  userSubscribeCourse = async (req: Request, res: Response) => {
+    const course = await userService.userSubscribeCourse(req);
+    return res.status(200).json(course);
+  };
 }
 
 export default new UserController();

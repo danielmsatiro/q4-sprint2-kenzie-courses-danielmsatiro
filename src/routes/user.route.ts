@@ -14,6 +14,7 @@ import {
   createUserSchema,
   userUpdateSchema,
 } from "../schemas";
+import { subscribeCourseSchema } from "../schemas/user/subscribeCourse.schema";
 
 const userRouter = Router();
 
@@ -49,6 +50,15 @@ userRouter.patch(
   getUserByIdOr404,
   verifyAdmin,
   userController.update
+);
+
+userRouter.patch(
+  "/users/subscribe/:id",
+  validateSchema(subscribeCourseSchema),
+  getUserByIdOr404,
+  validateToken,
+  verifyPermission,
+  userController.userSubscribeCourse
 );
 
 export default userRouter;

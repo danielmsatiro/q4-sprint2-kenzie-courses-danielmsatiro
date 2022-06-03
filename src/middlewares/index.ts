@@ -7,10 +7,11 @@ import verifyAdmin from "./verifyAdmin.middleware";
 import verifiUserExistsUpdate from "./verifyUserExistsUpdate.middleware";
 
 export {
-     validateSchema, 
-     validateToken, 
-     verifiUserExists, 
-     verifyPermission, 
-     getUserByIdOr404, 
-     verifyAdmin,
-     verifiUserExistsUpdate };
+  validateSchema,
+  validateToken,
+  verifiUserExists,
+  verifyPermission,
+  getUserByIdOr404,
+  verifyAdmin,
+  verifiUserExistsUpdate,
+};
