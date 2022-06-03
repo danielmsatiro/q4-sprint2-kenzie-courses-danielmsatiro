@@ -41,7 +41,7 @@ describe("Create course route | Integration Test", () => {
   });
 });
 
-describe("Get courses route | Integration Test", () => {
+/* describe("Get courses route | Integration Test", () => {
   let connection: DataSource;
 
   let course: Partial<Course> = generateCourse();
@@ -79,7 +79,7 @@ describe("Get courses route | Integration Test", () => {
     expect(response.body).toBeInstanceOf(Array);
     expect(response.body[0]).toEqual(expect.objectContaining({ ...newCourse }));
   });
-});
+}); */
 
 describe("Update Course route | Integration Test", () => {
   let connection: DataSource;

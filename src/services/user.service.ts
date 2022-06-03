@@ -10,6 +10,7 @@ import {
 } from "../schemas";
 import { AssertsShape } from "yup/lib/object";
 import { ISubscribe } from "../@types/express";
+import mailerService from "./mailer.service";
 
 dotenv.config();
 
@@ -96,6 +97,8 @@ class UserService {
     await userRepository.save(studant);
 
     const updatedUser = await userRepository.retrieve({ id: studant.id });
+
+    mailerService.subscribeCourseEmail(studant, course);
 
     return await serializedCreateUserSchema.validate(updatedUser, {
       stripUnknown: true,
