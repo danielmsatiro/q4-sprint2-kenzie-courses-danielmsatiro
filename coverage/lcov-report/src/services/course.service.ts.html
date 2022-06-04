@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/52</span>
+                <span class='fraction'>50/52</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">80% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>12/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/52</span>
+                <span class='fraction'>50/52</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -127,33 +127,33 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -185,27 +185,27 @@ class CourseService {
     });
   };
 &nbsp;
-  readAllCourses = <span class="fstat-no" title="function not covered" >async ({ decoded }): Promise&lt;AssertsShape&lt;any&gt;&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    let newList = [];</span>
-<span class="cstat-no" title="statement not covered" >    const courses = await courseRepository.listAll();</span>
-<span class="cstat-no" title="statement not covered" >    const loggedUser = await userRepository.retrieve({ id: decoded.id });</span>
-<span class="cstat-no" title="statement not covered" >    if (loggedUser.isAdm) {</span>
-<span class="cstat-no" title="statement not covered" >      for (const element of courses) {</span>
-<span class="cstat-no" title="statement not covered" >        newList.push({</span>
-<span class="cstat-no" title="statement not covered" >          id: element.id,</span>
-<span class="cstat-no" title="statement not covered" >          courseName: element.courseName,</span>
-<span class="cstat-no" title="statement not covered" >          duration: element.duration,</span>
-<span class="cstat-no" title="statement not covered" >          students: await element.students,</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >      return await serializedAdminCoursesSchema.validate(newList, {</span>
-<span class="cstat-no" title="statement not covered" >        stripUnknown: true,</span>
-<span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    return await serializedStudentsCoursesSchema.validate(courses, {</span>
+  readAllCourses = async ({ decoded }): Promise&lt;AssertsShape&lt;any&gt;&gt; =&gt; {
+    let newList = [];
+    const courses = await courseRepository.listAll();
+    const loggedUser = await userRepository.retrieve({ id: decoded.id });
+    if (<span class="branch-0 cbranch-no" title="branch not covered" >loggedUser.</span>isAdm) {
+      for (const element of courses) {
+        newList.push({
+          id: element.id,
+          courseName: element.courseName,
+          duration: element.duration,
+          students: await element.students,
+        });
+      }
+      return await serializedAdminCoursesSchema.validate(newList, {
+        stripUnknown: true,
+      });
+    }
+<span class="branch-0 cbranch-no" title="branch not covered" >    return <span class="branch-0 cbranch-no" title="branch not covered" >await serializedStudentsCoursesSchema.validate(courses, {</span></span>
 <span class="cstat-no" title="statement not covered" >      stripUnknown: true,</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
+  };
 &nbsp;
   updateCourse = async ({ validated, params }): Promise&lt;AssertsShape&lt;any&gt;&gt; =&gt; {
     const course = await courseRepository.update(params.id, {
@@ -226,7 +226,7 @@ export default new CourseService();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jun 03 2022 16:34:34 GMT-0300 (Brasilia Standard Time)
+                at Sat Jun 04 2022 16:39:30 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

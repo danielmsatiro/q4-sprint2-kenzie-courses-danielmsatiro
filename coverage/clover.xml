@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654284874508" clover="3.2.0">
-  <project timestamp="1654284874508" name="All files">
-    <metrics statements="897" coveredstatements="841" conditionals="164" coveredconditionals="157" methods="61" coveredmethods="57" elements="1122" coveredelements="1055" complexity="0" loc="897" ncloc="897" packages="12" files="35" classes="35"/>
+<coverage generated="1654371570502" clover="3.2.0">
+  <project timestamp="1654371570502" name="All files">
+    <metrics statements="965" coveredstatements="929" conditionals="182" coveredconditionals="173" methods="63" coveredmethods="62" elements="1210" coveredelements="1164" complexity="0" loc="965" ncloc="965" packages="13" files="37" classes="37"/>
     <package name="src">
-      <metrics statements="50" coveredstatements="34" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <metrics statements="58" coveredstatements="42" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/app.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="23" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -16,11 +16,19 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="10" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
       </file>
       <file name="data-source.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/data-source.ts">
         <metrics statements="35" coveredstatements="19" conditionals="1" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -61,23 +69,45 @@
         <line num="35" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="src.config">
+      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="mailer.config.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/config/mailer.config.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="src.controllers">
-      <metrics statements="61" coveredstatements="58" conditionals="28" coveredconditionals="28" methods="11" coveredmethods="10"/>
+      <metrics statements="61" coveredstatements="61" conditionals="31" coveredconditionals="31" methods="11" coveredmethods="11"/>
       <file name="course.controller.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/controllers/course.controller.ts">
-        <metrics statements="21" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="3"/>
+        <metrics statements="21" coveredstatements="21" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="7" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -106,9 +136,9 @@
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="24" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="24" type="stmt"/>
-        <line num="13" count="24" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -142,20 +172,20 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="79" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="79" type="stmt"/>
-        <line num="7" count="79" type="stmt"/>
-        <line num="8" count="79" type="stmt"/>
-        <line num="9" count="79" type="stmt"/>
-        <line num="10" count="79" type="stmt"/>
-        <line num="11" count="79" type="stmt"/>
-        <line num="12" count="79" type="stmt"/>
-        <line num="13" count="79" type="stmt"/>
-        <line num="14" count="79" type="stmt"/>
-        <line num="15" count="79" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="79" type="stmt"/>
-        <line num="17" count="79" type="stmt"/>
-        <line num="18" count="79" type="stmt"/>
+        <line num="5" count="46" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="46" type="stmt"/>
+        <line num="7" count="46" type="stmt"/>
+        <line num="8" count="46" type="stmt"/>
+        <line num="9" count="46" type="stmt"/>
+        <line num="10" count="46" type="stmt"/>
+        <line num="11" count="46" type="stmt"/>
+        <line num="12" count="46" type="stmt"/>
+        <line num="13" count="46" type="stmt"/>
+        <line num="14" count="46" type="stmt"/>
+        <line num="15" count="46" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="46" type="stmt"/>
+        <line num="17" count="46" type="stmt"/>
+        <line num="18" count="46" type="stmt"/>
       </file>
       <file name="User.entity.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/entities/User.entity.ts">
         <metrics statements="45" coveredstatements="45" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="4"/>
@@ -172,38 +202,38 @@
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="78" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="78" type="stmt"/>
-        <line num="16" count="78" type="stmt"/>
-        <line num="17" count="78" type="stmt"/>
-        <line num="18" count="78" type="stmt"/>
-        <line num="19" count="78" type="stmt"/>
-        <line num="20" count="78" type="stmt"/>
-        <line num="21" count="78" type="stmt"/>
-        <line num="22" count="78" type="stmt"/>
-        <line num="23" count="78" type="stmt"/>
-        <line num="24" count="78" type="stmt"/>
-        <line num="25" count="78" type="stmt"/>
-        <line num="26" count="78" type="stmt"/>
-        <line num="27" count="78" type="stmt"/>
-        <line num="28" count="78" type="stmt"/>
-        <line num="29" count="78" type="stmt"/>
-        <line num="30" count="78" type="stmt"/>
-        <line num="31" count="78" type="stmt"/>
-        <line num="32" count="78" type="stmt"/>
-        <line num="33" count="78" type="stmt"/>
-        <line num="34" count="78" type="stmt"/>
-        <line num="35" count="78" type="stmt"/>
-        <line num="36" count="78" type="stmt"/>
-        <line num="37" count="78" type="stmt"/>
-        <line num="38" count="78" type="stmt"/>
-        <line num="39" count="78" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="78" type="stmt"/>
-        <line num="41" count="78" type="stmt"/>
-        <line num="42" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="44" type="stmt"/>
+        <line num="16" count="44" type="stmt"/>
+        <line num="17" count="44" type="stmt"/>
+        <line num="18" count="44" type="stmt"/>
+        <line num="19" count="44" type="stmt"/>
+        <line num="20" count="44" type="stmt"/>
+        <line num="21" count="44" type="stmt"/>
+        <line num="22" count="44" type="stmt"/>
+        <line num="23" count="44" type="stmt"/>
+        <line num="24" count="44" type="stmt"/>
+        <line num="25" count="44" type="stmt"/>
+        <line num="26" count="44" type="stmt"/>
+        <line num="27" count="44" type="stmt"/>
+        <line num="28" count="44" type="stmt"/>
+        <line num="29" count="44" type="stmt"/>
+        <line num="30" count="44" type="stmt"/>
+        <line num="31" count="44" type="stmt"/>
+        <line num="32" count="44" type="stmt"/>
+        <line num="33" count="44" type="stmt"/>
+        <line num="34" count="44" type="stmt"/>
+        <line num="35" count="44" type="stmt"/>
+        <line num="36" count="44" type="stmt"/>
+        <line num="37" count="44" type="stmt"/>
+        <line num="38" count="44" type="stmt"/>
+        <line num="39" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="44" type="stmt"/>
+        <line num="41" count="44" type="stmt"/>
+        <line num="42" count="44" type="cond" truecount="2" falsecount="0"/>
         <line num="43" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="44" count="2" type="stmt"/>
-        <line num="45" count="78" type="stmt"/>
+        <line num="45" count="44" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/entities/index.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -226,15 +256,15 @@
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="11" count="10" type="stmt"/>
-        <line num="12" count="10" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
@@ -245,7 +275,7 @@
       </file>
     </package>
     <package name="src.middlewares">
-      <metrics statements="179" coveredstatements="175" conditionals="34" coveredconditionals="31" methods="7" coveredmethods="7"/>
+      <metrics statements="179" coveredstatements="177" conditionals="34" coveredconditionals="32" methods="7" coveredmethods="7"/>
       <file name="getUserByIdOr404.middleware.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/middlewares/getUserByIdOr404.middleware.ts">
         <metrics statements="25" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -303,19 +333,19 @@
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="7" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="43" type="stmt"/>
-        <line num="9" count="43" type="stmt"/>
-        <line num="10" count="43" type="stmt"/>
-        <line num="11" count="43" type="stmt"/>
-        <line num="12" count="43" type="stmt"/>
-        <line num="13" count="43" type="stmt"/>
-        <line num="14" count="43" type="stmt"/>
-        <line num="15" count="43" type="stmt"/>
-        <line num="16" count="43" type="stmt"/>
-        <line num="17" count="43" type="stmt"/>
-        <line num="18" count="43" type="stmt"/>
-        <line num="19" count="43" type="stmt"/>
-        <line num="20" count="43" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="16" count="16" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
@@ -327,26 +357,26 @@
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="22" type="stmt"/>
-        <line num="9" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="17" type="stmt"/>
+        <line num="9" count="17" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="5" type="stmt"/>
         <line num="11" count="5" type="stmt"/>
-        <line num="12" count="22" type="stmt"/>
-        <line num="13" count="22" type="stmt"/>
-        <line num="14" count="22" type="stmt"/>
-        <line num="15" count="22" type="stmt"/>
-        <line num="16" count="22" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="17" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="14" count="17" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
+        <line num="16" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="17" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="5" type="stmt"/>
         <line num="19" count="5" type="stmt"/>
-        <line num="20" count="17" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="17" type="stmt"/>
-        <line num="22" count="17" type="stmt"/>
-        <line num="23" count="17" type="stmt"/>
-        <line num="24" count="17" type="stmt"/>
-        <line num="25" count="22" type="stmt"/>
-        <line num="26" count="22" type="stmt"/>
+        <line num="20" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="12" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="23" count="12" type="stmt"/>
+        <line num="24" count="12" type="stmt"/>
+        <line num="25" count="17" type="stmt"/>
+        <line num="26" count="17" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
       </file>
@@ -383,23 +413,23 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="10" type="stmt"/>
-        <line num="7" count="10" type="stmt"/>
-        <line num="8" count="10" type="stmt"/>
-        <line num="9" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="11" count="10" type="stmt"/>
-        <line num="12" count="10" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="14" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="9" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
       </file>
@@ -411,49 +441,49 @@
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="25" type="stmt"/>
-        <line num="8" count="25" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="25" type="stmt"/>
-        <line num="10" count="25" type="stmt"/>
-        <line num="11" count="25" type="stmt"/>
-        <line num="12" count="25" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="24" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="24" type="stmt"/>
-        <line num="17" count="25" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
       <file name="verifyUserExistsUpdate.middleware.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/middlewares/verifyUserExistsUpdate.middleware.ts">
-        <metrics statements="21" coveredstatements="19" conditionals="5" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="21" coveredstatements="21" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="cond" truecount="0" falsecount="1"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="3" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="4" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="71" coveredstatements="70" conditionals="39" coveredconditionals="39" methods="11" coveredmethods="9"/>
+      <metrics statements="71" coveredstatements="70" conditionals="44" coveredconditionals="44" methods="11" coveredmethods="10"/>
       <file name="course.repository.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/repositories/course.repository.ts">
-        <metrics statements="37" coveredstatements="36" conditionals="17" coveredconditionals="17" methods="6" coveredmethods="4"/>
+        <metrics statements="37" coveredstatements="36" conditionals="22" coveredconditionals="22" methods="6" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -474,9 +504,9 @@
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="cond" truecount="3" falsecount="0"/>
-        <line num="21" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="23" count="2" type="cond" truecount="5" falsecount="0"/>
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="cond" truecount="3" falsecount="0"/>
         <line num="26" count="6" type="cond" truecount="2" falsecount="0"/>
@@ -524,7 +554,7 @@
         <line num="21" count="2" type="cond" truecount="5" falsecount="0"/>
         <line num="22" count="2" type="stmt"/>
         <line num="23" count="2" type="cond" truecount="3" falsecount="0"/>
-        <line num="24" count="168" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="72" type="cond" truecount="2" falsecount="0"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="cond" truecount="3" falsecount="0"/>
         <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -831,9 +861,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="162" coveredstatements="135" conditionals="31" coveredconditionals="29" methods="11" coveredmethods="10"/>
+      <metrics statements="206" coveredstatements="194" conditionals="41" coveredconditionals="36" methods="13" coveredmethods="13"/>
       <file name="course.service.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/services/course.service.ts">
-        <metrics statements="52" coveredstatements="32" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="3"/>
+        <metrics statements="52" coveredstatements="50" conditionals="15" coveredconditionals="12" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -846,33 +876,33 @@
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="7" type="stmt"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="17" count="7" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="0" falsecount="2"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
         <line num="41" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="42" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -888,14 +918,58 @@
         <line num="52" count="1" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/services/index.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="mailer.service.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/services/mailer.service.ts">
+        <metrics statements="40" coveredstatements="37" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
       </file>
       <file name="user.service.ts" path="/home/daniel/Documents/Kenzie-Q4/sprint-2B/q4-sprint2-kenzie-courses-danielmsatiro/src/services/user.service.ts">
-        <metrics statements="106" coveredstatements="99" conditionals="23" coveredconditionals="21" methods="7" coveredmethods="7"/>
+        <metrics statements="109" coveredstatements="102" conditionals="23" coveredconditionals="21" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -916,20 +990,20 @@
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="28" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="33" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
@@ -943,50 +1017,50 @@
         <line num="45" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="49" count="2" type="stmt"/>
-        <line num="50" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="51" count="24" type="cond" truecount="1" falsecount="0"/>
-        <line num="52" count="24" type="stmt"/>
-        <line num="53" count="24" type="cond" truecount="1" falsecount="0"/>
-        <line num="54" count="24" type="stmt"/>
-        <line num="55" count="24" type="stmt"/>
-        <line num="56" count="24" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="52" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
-        <line num="58" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="59" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="60" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="61" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="62" count="1" type="stmt"/>
         <line num="63" count="1" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="66" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="67" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="68" count="1" type="stmt"/>
+        <line num="68" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="69" count="1" type="stmt"/>
         <line num="70" count="1" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
-        <line num="72" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="73" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="76" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="74" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="77" count="1" type="stmt"/>
         <line num="78" count="1" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="80" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="81" count="2" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="81" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="82" count="2" type="stmt"/>
         <line num="83" count="2" type="stmt"/>
-        <line num="84" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="85" count="2" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="85" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="86" count="2" type="stmt"/>
         <line num="87" count="2" type="stmt"/>
-        <line num="88" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="89" count="0" type="stmt"/>
+        <line num="88" count="2" type="stmt"/>
+        <line num="89" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="91" count="2" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
         <line num="92" count="2" type="stmt"/>
         <line num="93" count="2" type="stmt"/>
         <line num="94" count="2" type="stmt"/>
@@ -995,13 +1069,16 @@
         <line num="97" count="2" type="stmt"/>
         <line num="98" count="2" type="stmt"/>
         <line num="99" count="2" type="stmt"/>
-        <line num="100" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="100" count="2" type="stmt"/>
         <line num="101" count="2" type="stmt"/>
         <line num="102" count="2" type="stmt"/>
-        <line num="103" count="2" type="stmt"/>
+        <line num="103" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="104" count="2" type="stmt"/>
-        <line num="105" count="1" type="stmt"/>
-        <line num="106" count="1" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="106" count="2" type="stmt"/>
+        <line num="107" count="2" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.test">
@@ -1014,28 +1091,28 @@
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="18" type="stmt"/>
-        <line num="8" count="18" type="stmt"/>
-        <line num="9" count="18" type="stmt"/>
-        <line num="10" count="18" type="stmt"/>
-        <line num="11" count="18" type="stmt"/>
-        <line num="12" count="18" type="stmt"/>
-        <line num="13" count="18" type="stmt"/>
+        <line num="7" count="20" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="9" count="20" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="11" count="20" type="stmt"/>
+        <line num="12" count="20" type="stmt"/>
+        <line num="13" count="20" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="15" type="stmt"/>
-        <line num="24" count="15" type="stmt"/>
-        <line num="25" count="15" type="stmt"/>
-        <line num="26" count="15" type="stmt"/>
-        <line num="27" count="15" type="stmt"/>
-        <line num="28" count="15" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
+        <line num="25" count="13" type="stmt"/>
+        <line num="26" count="13" type="stmt"/>
+        <line num="27" count="13" type="stmt"/>
+        <line num="28" count="13" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
       </file>

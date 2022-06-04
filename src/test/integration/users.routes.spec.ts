@@ -117,36 +117,48 @@ describe("Login user route | Integration Test", () => {
 describe("Get users route | Integration Test", () => {
   let connection: DataSource;
 
-  let user: Partial<User> = generateUser();
+  let userAdm: User;
+  let userNotAdm: User;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await AppDataSource.initialize()
       .then((res) => (connection = res))
       .catch((err) => {
         console.error("Error during Data Source initialization", err);
       });
+
+    const date = new Date();
+    const userRepo = connection.getRepository(User);
+    userAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: true,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
+    userNotAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: false,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await connection.destroy();
   });
 
   it("Return: Users as JSON response | Status code: 200", async () => {
-    const res = await supertest(app)
-      .post("/users")
-      .send({ ...user, isAdm: true });
-
-    const token = generateToken(res.body.id);
+    const token = generateToken(userAdm.id);
 
     const resUsers = await supertest(app)
       .get("/users")
       .set("Authorization", "Bearer " + token);
 
-    const { password, ...newUser } = user;
+    const { password, ...user } = userAdm;
 
     expect(resUsers.status).toBe(200);
     expect(resUsers.body).toBeInstanceOf(Array);
-    expect(resUsers.body[0]).toEqual(expect.objectContaining({ ...newUser }));
+    expect(resUsers.body[0]).toEqual(expect.objectContaining({ ...user }));
   });
 
   it("Return: Body error, missing token | Status code: 400", async () => {
@@ -159,11 +171,7 @@ describe("Get users route | Integration Test", () => {
   });
 
   it("Return: Body error, no permision | Status code: 401", async () => {
-    const res = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(res.body.id);
+    const token = generateToken(userNotAdm.id);
 
     const resUsers = await supertest(app)
       .get("/users")
@@ -180,43 +188,51 @@ describe("Get users route | Integration Test", () => {
 describe("Get only user route | Integration Test", () => {
   let connection: DataSource;
 
-  let user: Partial<User> = generateUser();
+  let userAdm: User;
+  let userNotAdm: User;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await AppDataSource.initialize()
       .then((res) => (connection = res))
       .catch((err) => {
         console.error("Error during Data Source initialization", err);
       });
+
+    const date = new Date();
+    const userRepo = connection.getRepository(User);
+    userAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: true,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
+    userNotAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: false,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await connection.destroy();
   });
 
   it("Return: Users as JSON response | Status code: 200", async () => {
-    const res = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(res.body.id);
+    const token = generateToken(userNotAdm.id);
 
     const response = await supertest(app)
-      .get(`/users/${res.body.id}`)
+      .get(`/users/${userNotAdm.id}`)
       .set("Authorization", "Bearer " + token);
 
-    const { password, ...newUser } = user;
+    const { password, ...user } = userNotAdm;
 
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(expect.objectContaining({ ...newUser }));
+    expect(response.body).toEqual(expect.objectContaining({ ...user }));
   });
 
   it("Return: Body error, missing token | Status code: 400", async () => {
-    const res = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const response = await supertest(app).get(`/users/${res.body.id}`);
+    const response = await supertest(app).get(`/users/${userNotAdm.id}`);
     expect(response.status).toBe(400);
     expect(response.body).toHaveProperty("message");
     expect(response.body).toStrictEqual({
@@ -225,18 +241,10 @@ describe("Get only user route | Integration Test", () => {
   });
 
   it("Return: Body error, no permision | Status code: 403", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(requester.body.id);
-
-    const userTarget = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser() });
+    const token = generateToken(userNotAdm.id);
 
     const response = await supertest(app)
-      .get(`/users/${userTarget.body.id}`)
+      .get(`/users/${userAdm.id}`)
       .set("Authorization", "Bearer " + token);
 
     expect(response.status).toBe(403);
@@ -250,31 +258,43 @@ describe("Get only user route | Integration Test", () => {
 describe("Update user route | Integration Test", () => {
   let connection: DataSource;
 
-  let user: Partial<User> = generateUser();
+  let userAdm: User;
+  let userNotAdm: User;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await AppDataSource.initialize()
       .then((res) => (connection = res))
       .catch((err) => {
         console.error("Error during Data Source initialization", err);
       });
+
+    const date = new Date();
+    const userRepo = connection.getRepository(User);
+    userAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: true,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
+    userNotAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: false,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await connection.destroy();
   });
 
   it("Return: User as JSON response | Status code: 200", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(requester.body.id);
+    const token = generateToken(userNotAdm.id);
 
     const newInformation = generateUser();
 
     const response = await supertest(app)
-      .patch(`/users/${requester.body.id}`)
+      .patch(`/users/${userNotAdm.id}`)
       .set("Authorization", "Bearer " + token)
       .send({ ...newInformation });
 
@@ -285,14 +305,10 @@ describe("Update user route | Integration Test", () => {
   });
 
   it("Return: Body error, missing token | Status code: 400", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
     const newInformation = generateUser();
 
     const response = await supertest(app)
-      .patch(`/users/${requester.body.id}`)
+      .patch(`/users/${userNotAdm.id}`)
       .send({ ...newInformation });
 
     expect(response.status).toBe(400);
@@ -303,18 +319,10 @@ describe("Update user route | Integration Test", () => {
   });
 
   it("Return: Body error, no permision | Status code: 403", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(requester.body.id);
-
-    const userTarget = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser() });
+    const token = generateToken(userNotAdm.id);
 
     const response = await supertest(app)
-      .patch(`/users/${userTarget.body.id}`)
+      .patch(`/users/${userAdm.id}`)
       .set("Authorization", "Bearer " + token)
       .send({ ...generateUser() });
 
@@ -324,101 +332,99 @@ describe("Update user route | Integration Test", () => {
       message: "You can't access information of another user",
     });
   });
+
+  it("Return: Body error, updating email to other that exists | Status code: 409", async () => {
+    const token = generateToken(userNotAdm.id);
+
+    const newInformation = { ...generateUser(), email: userAdm.email };
+
+    const response = await supertest(app)
+      .patch(`/users/${userNotAdm.id}`)
+      .set("Authorization", "Bearer " + token)
+      .send({ ...newInformation });
+
+    expect(response.status).toBe(409);
+    expect(response.body).toHaveProperty("message");
+    expect(response.body).toStrictEqual({
+      message: "User already exists",
+    });
+  });
 });
 
 describe("Subscribe user route | Integration Test", () => {
   let connection: DataSource;
 
-  let user: Partial<User> = generateUser();
-  let course: Partial<Course> = generateCourse();
+  let userAdm: User;
+  let userNotAdm: User;
+  let newCourse: Course;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await AppDataSource.initialize()
       .then((res) => (connection = res))
       .catch((err) => {
         console.error("Error during Data Source initialization", err);
       });
+
+    const date = new Date();
+    const userRepo = connection.getRepository(User);
+    userAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: true,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
+    userNotAdm = await userRepo.save({
+      ...generateUser(),
+      isAdm: false,
+      createdAt: date.toISOString(),
+      updatedAt: date.toISOString(),
+    });
+    const courseRepo = connection.getRepository(Course);
+    newCourse = await courseRepo.save({
+      ...generateCourse(),
+    });
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await connection.destroy();
   });
 
   it("Return: User as JSON response | Status code: 200", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(requester.body.id);
-
-    const adm = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser(), isAdm: true });
-
-    const tokenAdm = generateToken(adm.body.id);
-
-    const newCourse = await supertest(app)
-      .post("/courses")
-      .set("Authorization", "Bearer " + tokenAdm)
-      .send({ ...course });
+    const token = generateToken(userNotAdm.id);
 
     const response = await supertest(app)
-      .patch(`/users/subscribe/${requester.body.id}`)
+      .patch(`/users/subscribe/${userNotAdm.id}`)
       .set("Authorization", "Bearer " + token)
-      .send({ courseId: newCourse.body.id });
+      .send({ courseId: newCourse.id });
+
+    const { password, ...user } = userNotAdm;
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(
-      expect.objectContaining({ ...requester.body, courses: [newCourse.body] })
+      expect.objectContaining({ ...user, courses: [newCourse] })
     );
   });
 
-  it("Return: Another User as JSON response if requester is administrator | Status code: 200", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user, isAdm: true });
-
-    const token = generateToken(requester.body.id);
-
-    const userTarget = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser() });
-
-    const newCourse = await supertest(app)
-      .post("/courses")
-      .set("Authorization", "Bearer " + token)
-      .send({ ...course });
+  it("Return: Subscribe Another User as JSON response if requester is administrator | Status code: 200", async () => {
+    const token = generateToken(userAdm.id);
 
     const response = await supertest(app)
-      .patch(`/users/subscribe/${userTarget.body.id}`)
+      .patch(`/users/subscribe/${userNotAdm.id}`)
       .set("Authorization", "Bearer " + token)
-      .send({ courseId: newCourse.body.id });
+      .send({ courseId: newCourse.id });
+
+    const { password, ...user } = userNotAdm;
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(
-      expect.objectContaining({ ...userTarget.body, courses: [newCourse.body] })
+      expect.objectContaining({ ...user, courses: [newCourse] })
     );
   });
 
   it("Return: Body error, missing token | Status code: 400", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const adm = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser(), isAdm: true });
-
-    const tokenAdm = generateToken(adm.body.id);
-
-    const newCourse = await supertest(app)
-      .post("/courses")
-      .set("Authorization", "Bearer " + tokenAdm)
-      .send({ ...course });
-
     const response = await supertest(app)
-      .patch(`/users/subscribe/${requester.body.id}`)
-      .send({ courseId: newCourse.body.id });
+      .patch(`/users/subscribe/${userNotAdm.id}`)
+      .send({ courseId: newCourse.id });
 
     expect(response.status).toBe(400);
     expect(response.body).toHaveProperty("message");
@@ -428,31 +434,12 @@ describe("Subscribe user route | Integration Test", () => {
   });
 
   it("Return: Body error, no permision | Status code: 403", async () => {
-    const requester = await supertest(app)
-      .post("/users")
-      .send({ ...user });
-
-    const token = generateToken(requester.body.id);
-
-    const userTarget = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser() });
-
-    const adm = await supertest(app)
-      .post("/users")
-      .send({ ...generateUser(), isAdm: true });
-
-    const tokenAdm = generateToken(adm.body.id);
-
-    const newCourse = await supertest(app)
-      .post("/courses")
-      .set("Authorization", "Bearer " + tokenAdm)
-      .send({ ...course });
+    const token = generateToken(userNotAdm.id);
 
     const response = await supertest(app)
-      .patch(`/users/subscribe/${userTarget.body.id}`)
+      .patch(`/users/subscribe/${userAdm.id}`)
       .set("Authorization", "Bearer " + token)
-      .send({ courseId: newCourse.body.id });
+      .send({ courseId: newCourse.id });
 
     expect(response.status).toBe(403);
     expect(response.body).toHaveProperty("message");
