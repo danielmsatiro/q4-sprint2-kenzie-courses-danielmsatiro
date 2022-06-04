@@ -12,6 +12,47 @@
     }
   ],
   "paths": {
+    "/login": {
+      "post": {
+        "description": "Dá acesso ao usuário a esta api",
+        "tags": ["Login"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Chaves faltando ou valores de tipos incorretos."
+          },
+          "401": {
+            "description": "Senha ou email invalidos",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidCredentialsError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users": {
       "post": {
         "description": "Essa rota permite cadastrar um usuário",
@@ -59,7 +100,20 @@
                   "items": {
                     "type": "object",
                     "example": {
-                      "$ref": "#/components/schemas/User"
+                      "firstName": "Paulo",
+                      "lastName": "Cláudio",
+                      "email": "pauloclaudio@gmail.com",
+                      "isAdm": true,
+                      "updateAt": "2022-06-01T01:42:30.369Z",
+                      "createdAt": "2022-06-01T01:42:30.369Z",
+                      "id": "8556983d-938a-4354-b446-7ffe60f5e9af",
+                      "courses": [
+                        {
+                          "id": "bb5035c2-bf64-4d85-a56c-1f96401dabdd",
+                          "courseName": "Javascript",
+                          "duration": "250 horas"
+                        }
+                      ]
                     }
                   }
                 }
@@ -67,16 +121,67 @@
             }
           },
           "400": {
-            "description": "Tentativa de acesso sem token válido"
+            "description": "Tentativa de acesso sem token"
           },
           "401": {
-            "description": "Usuário não possui poderes de adminsitrador"
+            "description": "Token informado é inválido ou usuário não é administrador"
           }
         }
       },
       "patch": {
         "description": "Atualiza dados do usuário",
         "tags": ["Users"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id do usuário no formato uuid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tentativa de acesso sem token"
+          },
+          "401": {
+            "description": "Token informado é inválido"
+          },
+          "403": {
+            "description": "Usuário tentando alterar informações de outro usuário sem ter poderes de administrador"
+          }
+        }
+      }
+    },
+    "/users/:id": {
+      "get": {
+        "description": "Busca informações de um usuário pelo seu id",
+        "tags": ["Users"],
+        "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
             "name": "id",
@@ -91,18 +196,73 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tentativa de acesso sem token"
+          },
+          "401": {
+            "description": "Token informado é inválido"
+          },
+          "403": {
+            "description": "Usuário tentando acessar informações de outro usuário sem ter poderes de administrador"
           }
         }
       }
     },
-    "/users/:id": {
-      "get": {
-        "description": "",
-        "parameters": [],
+    "/users/subscribe/:id": {
+      "patch": {
+        "description": "Inscreve o usuário em um dos cursos",
+        "tags": ["Users"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id do usuário no formato uuid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeCourse"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tentativa de acesso sem token"
+          },
+          "401": {
+            "description": "Token informado é inválido"
+          },
+          "403": {
+            "description": "Usuário tentando outro usuário em um curso sem ter poderes de administrador"
           }
         }
       }
@@ -134,36 +294,76 @@
             }
           },
           "400": {
-            "description": "Chaves faltando ou valores de tipos incorretos."
+            "description": "Tentativa de acesso sem token, ou chaves obrigatórias faltando, ou valores de tipos incorretos."
+          },
+          "401": {
+            "description": "Token informado é inválido ou não é administrador"
           }
         }
       },
       "patch": {
-        "description": "",
-        "parameters": [],
+        "description": "Altera informações de um curso pelo seu Id se estiver logado como administrador",
+        "tags": ["Courses"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id do curso no formato uuid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Chaves faltando ou valores de tipos incorretos."
+          },
+          "401": {
+            "description": "Token informado é inválido ou não é administrador"
           }
         }
       },
       "get": {
-        "description": "",
-        "parameters": [],
+        "description": "Lista todos os cursos disponíveis",
+        "tags": ["Courses"],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/courses/:id": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
+            "description": "Array de Courses",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "example": {
+                      "id": "bb5035c2-bf64-4d85-a56c-1f96401dabdd",
+                      "courseName": "Javascript",
+                      "duration": "250 horas"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tentativa de acesso sem token"
+          },
+          "401": {
+            "description": "Token informado é inválido"
           }
         }
       }
@@ -171,6 +371,29 @@
   },
   "components": {
     "schemas": {
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "pauloclaudio@gmail.com",
+            "uniqueItems": true
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIzOThjODJiLWUwMzMtNDJkMC1hMzhjLTVjYWE3ZThkNzk4OSIsImlhdCI6MTY1NDM0MzMyNiwiZXhwIjoxNjU0MzQ2OTI2fQ.FRl_xYRMkT992oOBp79Xae9B0fk4syRGBaH2T6xvicE"
+          }
+        }
+      },
       "User": {
         "allOf": [
           { "$ref": "#/components/schemas/NewUser" },
@@ -192,6 +415,30 @@
                     "duration": "250 horas"
                   }
                 }
+              },
+              "password": {
+                "deprecated": true
+              }
+            }
+          }
+        ]
+      },
+      "UpdateUser": {
+        "allOf": [
+          { "$ref": "#/components/schemas/User" },
+          {
+            "properties": {
+              "password": {
+                "deprecated": false
+              },
+              "createdAt": {
+                "deprecated": true
+              },
+              "id": {
+                "deprecated": true
+              },
+              "courses": {
+                "deprecated": true
               }
             }
           }
@@ -211,7 +458,8 @@
           },
           "email": {
             "type": "string",
-            "example": "pauloclaudio@gmail.com"
+            "example": "pauloclaudio@gmail.com",
+            "uniqueItems": true
           },
           "password": {
             "type": "string",
@@ -219,15 +467,29 @@
           },
           "isAdm": {
             "type": "boolean",
-            "example": "true"
+            "example": "true",
+            "default": false
           },
           "updateAt": {
             "type": "string",
-            "example": "2022-06-01T01:42:30.369Z"
+            "example": "2022-06-01T01:42:30.369Z",
+            "default": "current date when updating"
           },
           "createdAt": {
             "type": "string",
-            "example": "2022-06-01T01:42:30.369Z"
+            "example": "2022-06-01T01:42:30.369Z",
+            "default": "current date when creating"
+          }
+        }
+      },
+      "SubscribeCourse": {
+        "type": "object",
+        "required": ["courseId"],
+        "properties": {
+          "courseId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "69b8aba6-9183-46a6-a668-936d9d08edbc"
           }
         }
       },
@@ -257,6 +519,15 @@
           "duration": {
             "type": "string",
             "example": "250 horas"
+          }
+        }
+      },
+      "InvalidCredentialsError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Invalid credentials"
           }
         }
       }
