@@ -1,0 +1,272 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Kenzie-courses",
+    "description": "Api para registro de alunos e cursos que podem se inscrever",
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api-documentation",
+      "description": "teste"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "description": "Essa rota permite cadastrar um usuário",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Chaves faltando ou valores de tipos incorretos."
+          },
+          "409": {
+            "description": "Email already exists"
+          }
+        }
+      },
+      "get": {
+        "description": "Retorna uma lista de usuários com informações de cadastro",
+        "security": [{ "bearerAuth": [] }],
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "Array de users",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "example": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Tentativa de acesso sem token válido"
+          },
+          "401": {
+            "description": "Usuário não possui poderes de adminsitrador"
+          }
+        }
+      },
+      "patch": {
+        "description": "Atualiza dados do usuário",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id do usuário no formato uuid",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/:id": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/courses": {
+      "post": {
+        "description": "Essa rota permite o usuário que tenha poderes de administrador cadastrar um curso",
+        "tags": ["Courses"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCourse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Chaves faltando ou valores de tipos incorretos."
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/courses/:id": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "allOf": [
+          { "$ref": "#/components/schemas/NewUser" },
+          { "required": ["id", "courses"] },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "8556983d-938a-4354-b446-7ffe60f5e9af"
+              },
+              "courses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "example": {
+                    "id": "bb5035c2-bf64-4d85-a56c-1f96401dabdd",
+                    "courseName": "Javascript",
+                    "duration": "250 horas"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NewUser": {
+        "type": "object",
+        "required": ["firstName", "lastName", "email", "password"],
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Paulo"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Cláudio"
+          },
+          "email": {
+            "type": "string",
+            "example": "pauloclaudio@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "isAdm": {
+            "type": "boolean",
+            "example": "true"
+          },
+          "updateAt": {
+            "type": "string",
+            "example": "2022-06-01T01:42:30.369Z"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2022-06-01T01:42:30.369Z"
+          }
+        }
+      },
+      "Course": {
+        "allOf": [
+          { "$ref": "#/components/schemas/NewCourse" },
+          { "required": ["id"] },
+          {
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "69b8aba6-9183-46a6-a668-936d9d08edbc"
+              }
+            }
+          }
+        ]
+      },
+      "NewCourse": {
+        "type": "object",
+        "required": ["courseName", "duration"],
+        "properties": {
+          "courseName": {
+            "type": "string",
+            "example": "Javascript"
+          },
+          "duration": {
+            "type": "string",
+            "example": "250 horas"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
